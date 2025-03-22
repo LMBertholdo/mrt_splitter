@@ -1,37 +1,55 @@
-mrt_splitter
-============
+# mrt_splitter
 
 A fast and minimal MRT file splitter written in Rust.
 
-Features:
-- Supports both .mrt and .mrt.gz files
-- Count MRT records with --count
+## Features
+
+- Supports both `.mrt` and `.mrt.gz` files
+- Count MRT records with `--count`
 - Split MRT into valid binary chunks by number of records
 
-Usage:
-  mrt_splitter <input.mrt[.gz]> [options]
+## Usage
 
-Options:
-  -n, --records <N>     Records per output file (default: 10000)
-  -o, --output <DIR>    Output directory (default: output_chunks)
-  -c, --count           Only count records
-  --help                Show help message
+**mrt_splitter <input.mrt[.gz]> [options]**
 
-Examples:
-  Count records:
-    mrt_splitter updates.mrt.gz --count
+### Options
 
-  Split file:
-    mrt_splitter updates.mrt.gz -n 50000 -o parts/
+- `-n, --records <N>` — Records per output file (default: 10000)
+- `-o, --output <DIR>` — Output directory (default: `output_chunks`)
+- `-c, --count` — Only count records
+- `--help` — Show help message
 
-Build:
-  cargo build --release
-  ./target/release/mrt_splitter --help
+## Examples
 
-Or use the Makefile
+Count records:
+
+```bash
+mrt_splitter updates.mrt.gz --count
+```
+
+Split file:
+
+```bash
+mrt_splitter updates.mrt.gz -n 50000 -o parts/
+```
+
+## Build
+
+```bash
+cargo build --release
+./target/release/mrt_splitter --help
+```
+
+Or use the Makefile:
+
+```bash
 make           # builds
 make install   # builds + installs to ~/.cargo/bin
 make clean     # cleans up
+```
 
-Do not forget to add ~/.cargo/bin to $PATH
+>  **Note:** Don't forget to add `~/.cargo/bin` to your `$PATH`:
 
+```bash
+export PATH="$HOME/.cargo/bin:$PATH"
+```
