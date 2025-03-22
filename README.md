@@ -28,3 +28,10 @@ Build:
   cargo build --release
   ./target/release/mrt_splitter --help
 
+Or use the Makefile
+make           # builds
+make install   # builds + installs to ~/.cargo/bin
+make clean     # cleans up
+
+Do not forget to add ~/.cargo/bin to $PATH
+
